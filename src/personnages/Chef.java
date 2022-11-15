@@ -4,10 +4,12 @@ public class Chef {
 	private String nom;
 	private int force;
 	private int effetPotion = 1;
-	public Chef(String nom, int force) {
+	private Village village;
+	public Chef(String nom, int force, Village village) {
 		this.nom = nom;
 		this.force = force;
 		this.effetPotion = effetPotion;
+		this.village = village;
 	}
 	public String getNom() {
 		return nom;
@@ -16,7 +18,7 @@ public class Chef {
 		System.out.println(prendreParole() + "« " + texte + "»");
 	}
 	private String prendreParole() {
-		return "Le chef " + nom + " du village " + " : ";
+		return "Le chef " + nom + " du village " + village.getNom() + " : ";
 	}
 	public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de " +
@@ -24,4 +26,5 @@ public class Chef {
 		romain.recevoirCoup(force / 3);
 	}
 }
+
 
